@@ -154,7 +154,7 @@ const ProfileScreen = () => {
         <Text style={{ fontSize: 35,
           fontFamily: 'outfit-bold',
         }}> My Profile</Text>
-        <Ionicons name="person" size={35} color="black" style={{marginRight: 30}} />
+        <Ionicons name="person" size={35} color="black" style={{marginRight: 10}} />
       </View>
       <View style={styles.form}>
       <Avatar userName={profile.userName} gender={profile.gender} />
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   loadingContainer: {
     flex: 1,

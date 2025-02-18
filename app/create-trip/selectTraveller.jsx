@@ -37,10 +37,10 @@ export default function SelectTraveller() {  // Changed to PascalCase and named 
       flex: 1,
       height: '100%',
       padding: 25,
-      paddingTop: 30,
+      paddingTop: 10,
       backgroundColor: Colors.WHITE,
     }}>
-      <View style={{ margin: 10, paddingTop: 40 }}>
+      <View style={{ margin: 10, paddingTop: 30 }}>
         <Text style={{ fontFamily: 'outfit-bold', fontSize: 28 }}>Who's Travelling?</Text>
         <Text style={{ marginTop: 20, fontFamily: 'outfit', fontSize: 18 }}>
           Choose your travellers

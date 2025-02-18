@@ -37,7 +37,7 @@ export default function selectBudget() {
             backgroundColor: Colors.WHITE,
             height: '100%',
             padding: 30,
-          paddingTop: 90,
+          paddingTop: 50,
           }}>
           <Text style={{ fontFamily: 'outfit-bold', fontSize: 35 }}>Budget</Text>
           <Text style={{ marginTop: 10, fontFamily: 'outfit', fontSize: 17, marginBottom: 20 }}>Chooose the budget for your trip</Text>

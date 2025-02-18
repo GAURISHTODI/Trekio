@@ -16,10 +16,10 @@ export default function tripReview() {
               backgroundColor: Colors.WHITE,
               height: '100%',
               padding: 25,
-              paddingTop: 40,
+              paddingTop: 20,
             }}>
          <View style={{ margin: 20 }}>
-          <Text style={{ fontFamily: 'outfit-bold', fontSize: 35 , marginTop: 30}}>Trip Review</Text>
+          <Text style={{ fontFamily: 'outfit-bold', fontSize: 35 , marginTop: 20}}>Trip Review</Text>
               <Text style={{ marginTop: 20, fontFamily: 'outfit', fontSize: 18 }}>Here is your final trip review</Text>
 
               

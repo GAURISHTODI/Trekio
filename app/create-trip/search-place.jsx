@@ -22,7 +22,7 @@ const SearchPlace = () => {
   }
 
   return (
-    <View style={{ flex: 1, padding: 20, margin: 10, marginTop: 40 }}>
+    <View style={{ flex: 1, padding: 20, margin: 10, marginTop: 20 }}>
       <Text style={{ fontFamily: 'outfit-bold', fontSize: 35, marginBottom: 30 }}>Search Place</Text>
       <View style={{ zIndex: 1000, position: 'relative' }}>
         <GooglePlacesAutocomplete

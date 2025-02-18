@@ -69,13 +69,13 @@ const SelectDates = () => {
       flex: 1,
       backgroundColor: Colors.WHITE,
       padding: 25,
-      paddingTop: 60,
+      paddingTop: 30,
     }}>
       <Text style={{
         fontFamily: 'outfit-bold',
         fontSize: 30,
         marginBottom: 20,
-        marginTop: 30
+        marginTop: 10
       }}>
         Travel Dates
       </Text>
