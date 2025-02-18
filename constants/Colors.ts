@@ -1,26 +1,30 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+// constants/colors.js
 
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+    WHITE: '#fff',
+    PRIMARY : '#000',
+    light: {
+      primary: '#3498db',  // Blue
+      secondary: '#2ecc71',  // Green
+      background: '#ecf0f1',  // Light Gray
+      textPrimary: '#2c3e50',  // Dark Gray for text
+      textSecondary: '#95a5a6',  // Light Gray for secondary text
+      border: '#dcdcdc',  // Border color
+      error: '#e74c3c',  // Red for errors
+      success: '#27ae60',  // Green for success
+    },
+    dark: {
+      primary: '#1abc9c',  // Teal
+      secondary: '#9b59b6',  // Purple
+      background: '#2c3e50',  // Dark Gray
+      textPrimary: '#ecf0f1',  // Light Gray for text
+      textSecondary: '#bdc3c7',  // Light Gray for secondary text
+      border: '#7f8c8d',  // Border color
+      error: '#e74c3c',  // Red for errors
+      success: '#2ecc71',  // Green for success
+    },
+  };
+  
