@@ -39,8 +39,5 @@ yarn-error.*
 
 app-example
 
-
-
 .env
-firebaseConfig.jsx
-
+app/configure/firebaseConfig.jsx
