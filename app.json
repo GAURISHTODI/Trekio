@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/images/trekio-logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.gaurishtodi.mytrekioapp"
