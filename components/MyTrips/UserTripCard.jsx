@@ -1,6 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import moment from 'moment';
+import Constants from "expo-constants";
 
 export default function UserTripCard({ userTrips }) {
   const formatData = (data) => {
@@ -13,6 +14,7 @@ export default function UserTripCard({ userTrips }) {
   }
 
   const tripData = userTrips.tripData ? formatData(userTrips.tripData) : {};
+  const mapsKey= Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY
   
   return (
     <View style={styles.container}>
@@ -20,7 +22,7 @@ export default function UserTripCard({ userTrips }) {
         <Image 
           source={{
             uri: tripData?.locationInfo?.photo
-              ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${tripData.locationInfo.photo}&key=` + process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY
+              ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${tripData.locationInfo.photo}&key=` + mapsKey
               : 'https://via.placeholder.com/100x100?text=No+Image'
           }}
           style={styles.image}

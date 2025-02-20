@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Linking, ScrollView } from 'react-native';
 import React, { useEffect } from 'react';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
+import LottieView from 'lottie-react-native';
 
 export default function FlightDetails() {
   const { flightDetails } = useLocalSearchParams();  
@@ -66,6 +67,7 @@ export default function FlightDetails() {
                   </Text>
                 </TouchableOpacity>
               )}
+
             </View>
           ))
         ) : (
@@ -73,6 +75,14 @@ export default function FlightDetails() {
             No Flight Details Available
           </Text>
         )}
+        <View>
+        <LottieView
+                      source={require('../../assets/images/flight.json')}
+                      autoPlay
+                      loop
+                      style={{ width: '100%', height: 250, zIndex: 1 }}
+                    />
+        </View>
       </ScrollView>
     </View>
   );

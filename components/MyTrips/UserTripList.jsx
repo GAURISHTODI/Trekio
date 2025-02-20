@@ -4,11 +4,13 @@ import moment from 'moment';
 import UserTripCard from './UserTripCard';
 import { useRouter } from 'expo-router';
 import { GetPhotoReference } from '../../app/services/GooglePlacesApi';
+import Constants from 'expo-constants';
 
 export default function UserTripList({ userTrips, selectedTripIndex = 0, onTripSelect }) {
   const router = useRouter();
   const [parsedSelectedTrip, setParsedSelectedTrip] = useState(null);
   const [locationPhotoRef, setLocationPhotoRef] = useState(null);
+  const googlemapsApiKey= Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
     if (userTrips && userTrips.length > 0 && userTrips[selectedTripIndex]?.tripData) {
@@ -40,11 +42,11 @@ export default function UserTripList({ userTrips, selectedTripIndex = 0, onTripS
   const getImageSource = () => {
     // Try to use the photo reference from trip data first
     if (parsedSelectedTrip?.locationInfo?.photo) {
-      return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${parsedSelectedTrip.locationInfo.photo}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}`;
+      return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${parsedSelectedTrip.locationInfo.photo}&key=${googlemapsApiKey}`;
     }
     // If not available, use the fetched photo reference
     else if (locationPhotoRef) {
-      return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationPhotoRef}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}`;
+      return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationPhotoRef}&key=${googlemapsApiKey}`;
     }
     // Fallback to placeholder
     return `https://via.placeholder.com/400x200.png?text=${encodeURIComponent(userTrips[selectedTripIndex]?.tripPlan?.tripDetails?.location || "No Image")}`;

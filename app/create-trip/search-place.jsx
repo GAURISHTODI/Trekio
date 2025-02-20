@@ -5,9 +5,11 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import 'react-native-get-random-values';
 import { CreateTripContext } from './../../context/CreateTripContext';
 import LottieView from "lottie-react-native";
+import Constants from "expo-constants";
 
 const SearchPlace = () => {
   const router = useRouter();
+  const key= Constants.expoConfig.extra. GOOGLE_MAPS_API_KEY
   
   const { tripData, setTripData } = useContext(CreateTripContext);
 
@@ -16,7 +18,7 @@ const SearchPlace = () => {
     console.log("Tripppp", tripData);
   }, [tripData]);
 
-  const GOOGLE_MAPS_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const GOOGLE_MAPS_API_KEY = key;
   if (!GOOGLE_MAPS_API_KEY) {
     console.error('Google Maps API key is missing');
   }

@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './../../../configure/firebaseConfig';
+import LottieView from 'lottie-react-native';
 
 const signUp = () => {
     const router = useRouter();
@@ -44,6 +45,16 @@ const signUp = () => {
                 <Text style={Styles.inptext}> Password</Text>
                 <TextInput style={Styles.input} placeholder='Enter Password' secureTextEntry={true} onChangeText={setPassword} />
 
+                  <View>
+                                     <LottieView
+                                                   source={require('../../../assets/images/signin.json')}
+                                                   autoPlay
+                                                   loop
+                                                   style={{ width: '100%', height: 200, marginTop: 10}}
+                                                 />
+</View>
+
+
                 <View style={{ marginTop: 40 }}>
                     <TouchableOpacity style={Styles.buttonStyle} onPress={onCreateAccount}>
                         <Text style={{ color: 'white', textAlign: "center", fontSize: 20 }}> Create Account</Text>
@@ -63,15 +74,17 @@ const Styles = StyleSheet.create({
         flex: 1,
     },
     input: {
-        borderWidth: 1,
-        padding: 20,
-        marginTop: 15,
-        fontSize: 20,
-        borderRadius: 15,
+            borderWidth: 1,
+            padding: 15,
+            marginTop: 10,
+            fontSize: 18,
+            borderRadius: 15,
+            fontFamily: 'outfit-medium',
     },
     inptext: {
-        fontSize: 20,
-        marginTop: 10
+        fontFamily: 'outfit',
+        fontSize: 19,
+        marginTop: 5,
     },
     buttonStyle: {
         marginTop: 20,

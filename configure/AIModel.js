@@ -1,10 +1,12 @@
+import Constants from 'expo-constants';
+
 const {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
   } = require("@google/generative-ai");
   
-  const apiKey = process.env.EXPO_PUBLIC_GOOGLE_GEMINI_API_KEY;
+  const apiKey = Constants.expoConfig.extra.GOOGLE_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({

@@ -6,6 +6,8 @@ import { auth, db } from '../../configure/firebaseConfig';
 import { useNavigation } from '@react-navigation/native'; // Ensure using only one navigation hook
 import LottieView from 'lottie-react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Picker } from '@react-native-picker/picker';
+
 
 
 const ProfileScreen = () => {
@@ -131,13 +133,13 @@ const ProfileScreen = () => {
         {gender ? (
           <LottieView
             source={
-              gender.toLowerCase() === 'male'
+              gender === 'Male'
                 ? require('../../assets/images/male.json')
                 : require('../../assets/images/female.json')
             }
             autoPlay
             loop
-            style={{ width: 300, height: 200}}
+            style={{ width: 300, height: 200 }}
           />
         ) : (
           <View style={styles.avatar}>
@@ -178,15 +180,7 @@ const ProfileScreen = () => {
           placeholder="Enter username"
         />
 
-        <Text style={styles.label}>Gender</Text>
-        <TextInput
-          style={styles.input}
-          value={profile.gender}
-          onChangeText={(text) => setProfile((prev) => ({ ...prev, gender: text }))}
-          placeholder="Enter gender"
-        />
-
-        <Text style={styles.label}>Age</Text>
+<Text style={styles.label}>Age</Text>
         <TextInput
           style={styles.input}
           value={profile.age}
@@ -203,6 +197,18 @@ const ProfileScreen = () => {
           keyboardType="phone-pad"
           placeholder="Enter contact number"
         />
+        <Text style={styles.label}>Gender</Text>
+        <View style={styles.gender}>
+        <Picker
+          selectedValue={profile.gender}
+          style={styles.input}
+          onValueChange={(itemValue) => setProfile((prev) => ({ ...prev, gender: itemValue }))}
+        >
+          <Picker.Item label="Select Gender" value="" />
+          <Picker.Item label="Male" value="Male" />
+          <Picker.Item label="Female" value="Female" />
+        </Picker>
+        </View>
 
         <TouchableOpacity 
           style={[styles.button, isSaving && styles.buttonDisabled]} 
@@ -241,6 +247,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
+  gender: {
+    borderWidth: 2,
+    borderColor: '#ddd',
+    padding: 0,
+    borderRadius: 5,
+    marginBottom: 15,
+    fontSize: 16,
+    fontFamily: 'outfit-medium'
+    
+  },
   form: {
     padding: 20,
     paddingBottom: 50,
@@ -264,7 +280,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   input: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#ddd',
     padding: 10,
     borderRadius: 5,

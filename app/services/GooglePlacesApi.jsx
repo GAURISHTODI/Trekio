@@ -1,5 +1,6 @@
 // GooglePlacesApi.js
-const GOOGLE_MAPS_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;
+import Constants from 'expo-constants';
+const key = Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY;;
 
 export const GetPhotoReference = async (placeName) => {
     try {
@@ -9,7 +10,7 @@ export const GetPhotoReference = async (placeName) => {
         }
 
         const encodedPlaceName = encodeURIComponent(placeName);
-        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedPlaceName}&key=${GOOGLE_MAPS_API_KEY}`;
+        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedPlaceName}&key=${key}`;
 
         const response = await fetch(url);
         

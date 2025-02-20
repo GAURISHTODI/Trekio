@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, ScrollView, Linking, Image, Alert } from 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { GetPhotoReference } from '../services/GooglePlacesApi';
+import Constants from 'expo-constants';
 
 export default function DayPlanner() {
   const { dayPlanner } = useLocalSearchParams();
@@ -9,6 +10,7 @@ export default function DayPlanner() {
   const [dayRefs, setDayRefs] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [failedUrls, setFailedUrls] = useState(new Set());
+  const key = Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
     navigation.setOptions({ headerShown: true, headerTransparent: true, headerTitle: '' });
@@ -116,7 +118,7 @@ export default function DayPlanner() {
 
     // Try Google Photos as fallback
     if (dayRefs[activity.placeName]) {
-      const googlePhotoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${dayRefs[activity.placeName]}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}`;
+      const googlePhotoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${dayRefs[activity.placeName]}&key=${key}`;
       
       if (!failedUrls.has(googlePhotoUrl)) {
         return (

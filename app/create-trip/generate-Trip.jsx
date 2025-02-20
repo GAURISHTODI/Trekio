@@ -77,7 +77,6 @@ export default function GenerateTrip() {
             const responseText = await result.response.text();
             
             console.log("Raw AI Response:", responseText);
-            
             let tripResp;
             try {
                 tripResp = extractJSONFromText(responseText);

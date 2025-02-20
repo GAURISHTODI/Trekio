@@ -41,3 +41,4 @@ app-example
 
 .env
 app/configure/firebaseConfig.jsx
+app.config.js 

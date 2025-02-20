@@ -5,6 +5,9 @@ import Feather from '@expo/vector-icons/Feather';
 import { useRouter } from 'expo-router';
 import { CreateTripContext } from '../../context/CreateTripContext';  // Import the context
 import { GetPhotoReference } from '../../app/services/GooglePlacesApi';
+import Constants from 'expo-constants';
+
+
 
 
 // Example country, wonder, and top picks data with geometry, photos, and URLs
@@ -25,6 +28,7 @@ const Discover = () => {
   const { tripData, setTripData } = useContext(CreateTripContext);
   const router = useRouter();
   const [countryPhotos, setCountryPhotos] = useState({});
+  const googlemapsApiKey= Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -33,7 +37,7 @@ const Discover = () => {
         try {
           const photoResult = await GetPhotoReference(country.name);
           if (photoResult?.results?.[0]?.photos?.[0]?.photo_reference) {
-            photos[country.id] = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoResult.results[0].photos[0].photo_reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}`;
+            photos[country.id] = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoResult.results[0].photos[0].photo_reference}&key=${googlemapsApiKey}`;
           }
         } catch (error) {
           console.error(`Error fetching photo for ${country.name}:`, error);

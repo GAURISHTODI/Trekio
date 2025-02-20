@@ -5,6 +5,7 @@ import { Colors } from './../../../constants/Colors';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './../../../configure/firebaseConfig';
 import { KeyboardAvoidingView } from 'react-native';
+import LottieView from 'lottie-react-native';
 
 const SignIn = () => {
     const router = useRouter();  //  router usage
@@ -33,14 +34,11 @@ const SignIn = () => {
             <Text style={{ fontFamily: 'outfit-bold', fontSize: 30, padding: 20, marginTop: 20 }}>
                 Let's Sign you In
             </Text>
-            <Text style={{ fontFamily: 'outfit', fontSize: 25, color: Colors.GRAY, marginTop: 10 }}>
-                Welcome back
-            </Text>
-            <Text style={{ fontFamily: 'outfit', fontSize: 25, color: Colors.GRAY }}>
-                You've been missed!
+            <Text style={{ fontFamily: 'outfit', fontSize: 21, color: Colors.GRAY, marginTop: 0 }}>
+                Welcome back! You've been missed!
             </Text>
 
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 10 }}>
                 <Text style={Styles.inptext}>EMAIL</Text>
                 <TextInput
                     style={Styles.input}
@@ -60,8 +58,16 @@ const SignIn = () => {
                     
                 />
             </View>
+            <View>
+                    <LottieView
+                                  source={require('../../../assets/images/signin.json')}
+                                  autoPlay
+                                  loop
+                                  style={{ width: '100%', height: 200, marginTop: 10}}
+                                />
+                    </View>
 
-            <View style={{ marginTop: 50 }}>
+            <View style={{ marginTop: 10 }}>
                 <TouchableOpacity style={Styles.buttonStyle} onPress={onSignIn}>
                     <Text style={Styles.buttonText}>Sign In</Text>
                 </TouchableOpacity>
@@ -80,17 +86,17 @@ const SignIn = () => {
 const Styles = StyleSheet.create({
     input: {
         borderWidth: 1,
-        padding: 20,
-        marginTop: 15,
-        fontSize: 20,
+        padding: 15,
+        marginTop: 10,
+        fontSize: 18,
         borderRadius: 15,
         borderColor: Colors.GRAY,
         fontFamily: 'outfit',
     },
     inptext: {
         fontFamily: 'outfit',
-        fontSize: 20,
-        marginTop: 10,
+        fontSize: 19,
+        marginTop: 5,
     },
     buttonStyle: {
         marginTop: 20,
