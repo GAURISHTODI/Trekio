@@ -9,7 +9,7 @@ import Constants from "expo-constants";
 
 const SearchPlace = () => {
   const router = useRouter();
-  const key= Constants.expoConfig.extra. GOOGLE_MAPS_API_KEY
+  const key= Constants.expoConfig.extra.GOOGLE_MAPS_API_KEY
   
   const { tripData, setTripData } = useContext(CreateTripContext);
 
@@ -83,7 +83,7 @@ const SearchPlace = () => {
             router.push('/create-trip/selectTraveller');
           }}
           query={{
-            key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY,
+            key: key,
             language: 'en',
           }}
         />

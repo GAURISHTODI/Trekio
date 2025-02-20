@@ -1,17 +1,19 @@
+import React from 'react';
 import { useEffect, useState } from "react";
-import { View, ActivityIndicator } from "react-native";
+import { View } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { Redirect } from "expo-router";
-import { auth } from "./../configure/firebaseConfig";
-import Login from "../app/Login";
-import { User } from "firebase/auth"; // Import User type
+import { auth } from "../configure/firebaseConfig";
+import Login from "./Login";
+import { User } from "firebase/auth";
 
-export default function Index() {
-  const [user, setUser] = useState<User | null>(null); // ✅ Define correct type
+export default function Index(): JSX.Element {
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      setUser(authUser); // ✅ Now TypeScript understands the type
+    const unsubscribe = auth.onAuthStateChanged((authUser: User | null) => {
+      setUser(authUser);
       setLoading(false);
     });
 
