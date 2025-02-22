@@ -1,0 +1,32 @@
+{
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "jsx": "react-native",
+      "paths": {
+        "@/*": ["./*"]
+      },
+      "types": ["node"],  // Removed explicit firebase type as it's included in node_modules
+      "target": "es2017",
+      "lib": ["es2017"],
+      "moduleResolution": "node",
+      "allowJs": true,
+      "noEmit": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true
+    },
+    "include": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.jsx",
+      ".expo/types/**/*.ts",
+      "expo-env.d.ts",
+      "app/_layout.jsx",
+      "app/(tabsTwo)/MoreInfo.jsx"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }

@@ -1,5 +1,4 @@
 import Constants from 'expo-constants';
-
 const {
     GoogleGenerativeAI,
     HarmCategory,
