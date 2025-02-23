@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity, StatusBar, ActivityIndicator 
 import React, { useState, useEffect } from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign'; 
 import StartNewTripCard from '../../components/MyTrips/StartNewTripCard';
-import { Colors } from './../../constants/Colors';
 import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 import { db, auth } from './../../configure/firebaseConfig'
 import UserTripList from '../../components/MyTrips/UserTripList';

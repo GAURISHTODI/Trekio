@@ -12,12 +12,14 @@ const signUp = () => {
     const [password, setPassword] = useState('');
 
     const onCreateAccount = () => {
-        if (!email || !password ) {
+        const trimmedEmail = email.trim(); // Remove spaces before and after
+    
+        if (!trimmedEmail || !password) {
             ToastAndroid.show("Please enter all details", ToastAndroid.BOTTOM);
             return;
         }
-
-        createUserWithEmailAndPassword(auth, email, password)
+    
+        createUserWithEmailAndPassword(auth, trimmedEmail, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
@@ -25,13 +27,11 @@ const signUp = () => {
                 ToastAndroid.show("Success", ToastAndroid.BOTTOM);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                console.log(error.code, error.message);
                 ToastAndroid.show("Invalid credentials", ToastAndroid.LONG);
             });
     };
-
+    
     return (
         <View style={Styles.container}>
             <StatusBar barStyle='dark-content'/>

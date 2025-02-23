@@ -6,7 +6,7 @@ import { StyleSheet } from "react-native";
 import { useRouter } from 'expo-router';  
 
 const Login = () => {
-  const router = useRouter(); // 
+  const router = useRouter(); 
 
   return (
     <View style={tw`flex-1`} >

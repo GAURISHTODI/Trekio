@@ -13,6 +13,13 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
+
+    useEffect(() => {
+        console.log("Firebase auth state:", auth?.currentUser);
+        console.log("Firebase auth initialized:", auth != null);
+      }, []);
+      
+
     const onSignIn = async () => {
         if (!email || !password) {
             ToastAndroid.show("Please enter email and password", ToastAndroid.BOTTOM);
@@ -21,26 +28,63 @@ const SignIn = () => {
 
         setLoading(true);
         try {
+            console.log("Attempting sign in...");
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("Sign in successful, user:", userCredential.user.uid);
             
-            // Save user data and credentials
-            await Promise.all([
-                saveUserToStorage(userCredential.user),
-                saveUserCredentials(email, password)
-            ]);
+            try {
+                console.log("Saving user to storage...");
+                await saveUserToStorage(userCredential.user);
+                console.log("User saved to storage successfully");
+                
+                console.log("Saving user credentials...");
+                await saveUserCredentials(email, password);
+                console.log("User credentials saved successfully");
+            } catch (storageError) {
+                console.error("Storage error:", storageError);
+                ToastAndroid.show("Sign in successful but error saving data", ToastAndroid.BOTTOM);
+            }
 
-            console.log("User signed in and data saved");
+            console.log("Navigating to myTrip...");
             router.replace('/(tabs)/myTrip');
         } catch (error) {
-            console.error("Login error:", error.message);
-            ToastAndroid.show(
-                error.message || "Sign in failed. Please try again.",
-                ToastAndroid.BOTTOM
-            );
+            console.error("Login error:", error);
+            // Add network check
+            if (!navigator.onLine) {
+              ToastAndroid.show("No internet connection", ToastAndroid.LONG);
+              return;
+            }
+            
+            let errorMessage = "Sign in failed. ";
+            if (error.code === 'auth/invalid-email') {
+                errorMessage += "Invalid email format.";
+            } else if (error.code === 'auth/user-not-found') {
+                errorMessage += "User not found.";
+            } else if (error.code === 'auth/wrong-password') {
+                errorMessage += "Incorrect password.";
+            } else if (error.code === 'auth/network-request-failed') {
+                errorMessage += "Network error. Check your connection.";
+            } else {
+                errorMessage += error.message || "Please try again.";
+            }
+            
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
         } finally {
             setLoading(false);
         }
     };
+
+    // Add initialization check
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                console.log("Auth state:", auth.currentUser);
+            } catch (error) {
+                console.error("Auth initialization error:", error);
+            }
+        };
+        checkAuth();
+    }, []);
 
     return (
         <KeyboardAvoidingView style={{ padding: 25, backgroundColor: Colors.WHITE, height: '100%' }}>
@@ -134,5 +178,6 @@ const Styles = StyleSheet.create({
         fontFamily: 'outfit-bold',
     },
 });
+
 
 export default SignIn;

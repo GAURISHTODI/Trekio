@@ -1,31 +1,39 @@
 {
-    "cli": {
-      "version": ">= 15.0.10",
-      "appVersionSource": "remote"
-    },
-    "build": {
-      "development": {
-        "developmentClient": true,
-        "distribution": "internal",
-        "android": {
-          "buildType": "apk",
-          "gradleCommand": ":app:assembleDebug"
-        }
-      },
-      "preview": {
-        "distribution": "internal",
-        "android": {
-          "buildType": "apk"
-        }
-      },
-      "production": {
-        "android": {
-          "buildType": "app-bundle"
+  "cli": {
+    "version": ">= 15.0.10",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug",
+        "env": {
+          "EXPO_PUBLIC_API_URL": "your-dev-api-url"
         }
       }
     },
-    "submit": {
-      "production": {}
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "env": {
+          "EXPO_PUBLIC_API_URL": "your-staging-api-url"
+        }
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle",
+        "env": {
+          "EXPO_PUBLIC_API_URL": "your-prod-api-url"
+        }
+      }
     }
+  },
+  "submit": {
+    "production": {}
   }
-  
+}
