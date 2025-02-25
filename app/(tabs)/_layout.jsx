@@ -9,7 +9,7 @@ const TabLayout = () => {
       tabBarActiveTintColor: 'purple',
       tabBarLabelStyle: { fontSize: 10 },
         tabBarIconStyle: { marginBottom: -5 }, 
-        tabBarStyle: { paddingTop: 2, height: 50 }, 
+        tabBarStyle: { paddingTop: 5, height: 50 }, 
     }}
     >  
       <Tabs.Screen name="myTrip"

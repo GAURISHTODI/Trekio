@@ -60,6 +60,15 @@ export default function HotelDetails() {
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRefs[hotelName]}&key=${googlemapsApiKey}`;
   };
 
+  const handleMapsPress = (coordinates) => {
+    const { latitude, longitude } = coordinates || {};
+    if (!latitude || !longitude) {
+      Alert.alert("Not Available", "Location coordinates are not available for this activity.");
+      return;
+    }
+    Linking.openURL(`https://www.google.com/maps?q=${latitude},${longitude}`);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView style={{ flex: 1, padding: 20 }}>
@@ -131,6 +140,7 @@ export default function HotelDetails() {
                   📍 Location: Lat {hotel?.hotelGeoCoordinates?.latitude || "N/A"}, Lng {hotel?.hotelGeoCoordinates?.longitude || "N/A"}
                 </Text>
 
+
                 {/* Booking Button */}
                 {hotel?.hotelBookingUrl && (
                   <TouchableOpacity
@@ -148,6 +158,14 @@ export default function HotelDetails() {
                     </Text>
                   </TouchableOpacity>
                 )}
+
+                {hotel?.hotelGeoCoordinates && <TouchableOpacity
+                                      onPress={() => handleMapsPress(hotel?.hotelGeoCoordinates)}
+                                      style={{ backgroundColor: 'black', borderRadius: 6, margin: 10, padding: 10 }}
+                                    >
+                                      <Text style={{ color: 'white', textAlign: 'center', fontSize: 17, fontFamily: 'outfit' }}>📍 Open in Google Maps</Text>
+                                    </TouchableOpacity> }
+
               </View>
             ))
           ) : (

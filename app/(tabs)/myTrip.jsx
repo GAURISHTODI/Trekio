@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 30,
     marginBottom: 10,
+    paddingTop: 10,
   },
   top: {
     fontSize: 35,

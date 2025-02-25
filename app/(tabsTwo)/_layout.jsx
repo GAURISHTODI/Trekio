@@ -26,14 +26,6 @@ import { Colors } from '../../constants/Colors';
       }}
     >
       <Tabs.Screen
-        name="FlightDetails"
-        options={{
-          tabBarLabel: 'Flights',
-          tabBarIcon: ({ color }) => <FontAwesome name="plane" size={24} color={color} />,
-        }}
-        initialParams={{ flightDetails }} // Pass relevant data to FlightDetails tab
-      />
-      <Tabs.Screen
         name="HotelDetails"
         options={{
           tabBarLabel: 'Hotels',
@@ -41,6 +33,15 @@ import { Colors } from '../../constants/Colors';
         }}
         initialParams={{ hotelDetails }} // Pass relevant data to HotelDetails tab
       />
+      <Tabs.Screen
+        name="FlightDetails"
+        options={{
+          tabBarLabel: 'Flights',
+          tabBarIcon: ({ color }) => <FontAwesome name="plane" size={24} color={color} />,
+        }}
+        initialParams={{ flightDetails }} // Pass relevant data to FlightDetails tab
+      />
+    
       <Tabs.Screen
         name="DayPlannerInfo"
         options={{

@@ -95,7 +95,7 @@ const ProfileScreen = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      router.push('/auth/signIn');
+      router.replace('/Login');
     } catch (error) {
       Alert.alert('Error', 'Failed to log out');
     }
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 10,
+    paddingTop: 10,
   },
   loadingContainer: {
     flex: 1,

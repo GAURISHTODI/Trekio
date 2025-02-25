@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 10,
+    paddingTop: 10,
   },
   titles: {
     fontFamily: 'outfit-bold',
