@@ -91,10 +91,10 @@ export default function UserTripList({ userTrips, selectedTripIndex = 0, onTripS
             </Text>
 
             <View style={{ marginTop: 15 }}>
-              <Text style={{ fontFamily: 'outfit-medium', fontSize: 18 }}>TRAVELLER: {parsedSelectedTrip?.traveller?.title || 'Not specified'}</Text>
-              <Text style={{ fontFamily: 'outfit-medium', fontSize: 18 }}>BUDGET: {parsedSelectedTrip?.budget || 'Not specified'}</Text>
+              <Text style={{ fontFamily: 'outfit-bold', fontSize: 15 }}>TRAVELLER: {parsedSelectedTrip?.traveller?.title || 'Not specified'}</Text>
+              <Text style={{ fontFamily: 'outfit-bold', fontSize: 15 }}>BUDGET: {parsedSelectedTrip?.budget || 'Not specified'}</Text>
               {parsedSelectedTrip?.startDate && parsedSelectedTrip?.endDate && (
-                <Text style={{ fontFamily: 'outfit-medium', fontSize: 18 }}>
+                <Text style={{ fontFamily: 'outfit-bold', fontSize: 15 }}>
                   DATES: {moment(parsedSelectedTrip.startDate).format('DD MMM YYYY')} to {moment(parsedSelectedTrip.endDate).format('DD MMM YYYY')}
                 </Text>
               )}

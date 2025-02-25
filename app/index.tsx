@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { ActivityIndicator } from 'react-native';
 import { Redirect } from 'expo-router';
-import { auth, getUserFromStorage, getUserCredentials, saveUserToStorage } from '../configure/firebaseConfig';
+import { auth, getUserFromStorage, getUserCredentials, saveUserToStorage, reAuthenticate } from '../configure/firebaseConfig';
 import Login from './Login';
 import { User } from 'firebase/auth';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Index(): JSX.Element {
   const [user, setUser] = useState<User | null>(null);
@@ -14,17 +13,21 @@ export default function Index(): JSX.Element {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        // Check AsyncStorage first
-        const storedUser = await getUserFromStorage();
+        // First check if we're already logged in
+        const currentUser = auth.currentUser;
         
-        if (storedUser) {
-          // If we have stored credentials, try to sign in automatically
-          const credentials = await getUserCredentials();
-          if (credentials) {
-            const { email, password } = credentials;
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            await saveUserToStorage(userCredential.user);
-            setUser(userCredential.user);
+        if (currentUser) {
+          // We're already authenticated
+          setUser(currentUser);
+          await saveUserToStorage(currentUser);
+        } else {
+          // Try to restore auth state from storage
+          const storedUser = await getUserFromStorage();
+          
+          if (storedUser) {
+            // Try to re-authenticate using stored credentials
+            const authenticatedUser = await reAuthenticate();
+            setUser(authenticatedUser);
           }
         }
       } catch (error) {
@@ -39,6 +42,7 @@ export default function Index(): JSX.Element {
       setUser(authUser);
       if (authUser) {
         saveUserToStorage(authUser);
+        setLoading(false);
       }
     });
 

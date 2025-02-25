@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../../configure/firebaseConfig';
-import { useNavigation } from '@react-navigation/native'; // Ensure using only one navigation hook
+import { useRouter, Stack } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Picker } from '@react-native-picker/picker';
 
-
-
 const ProfileScreen = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
   const [profile, setProfile] = useState({
     email: auth.currentUser?.email || '',
     userName: '',
@@ -27,26 +25,11 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (!currentUser) {
-      navigation.replace('Login');
+      router.push('/auth/signIn');
     } else {
       fetchUserProfile();
     }
   }, [currentUser]);
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: 'My Profile',
-      headerRight: () => (
-        <TouchableOpacity 
-          onPress={handleSave}
-          style={styles.headerButton}
-          disabled={isSaving}
-        >
-          <Text style={{ color: '#007AFF' }}>Save</Text>
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation, isSaving]);
 
   const fetchUserProfile = async () => {
     try {
@@ -108,12 +91,11 @@ const ProfileScreen = () => {
       setIsSaving(false);
     }
   };
-  
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigation.replace('Login');
+      router.push('/auth/signIn');
     } catch (error) {
       Alert.alert('Error', 'Failed to log out');
     }
@@ -151,81 +133,97 @@ const ProfileScreen = () => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={{ fontSize: 35,
-          fontFamily: 'outfit-bold',
-        }}> My Profile</Text>
-        <Ionicons name="person" size={35} color="black" style={{marginRight: 10}} />
-      </View>
-      <View style={styles.form}>
-      <Avatar userName={profile.userName} gender={profile.gender} />
-
-
-        {error && <Text style={styles.errorText}>{error}</Text>}
-
-        <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={[styles.input, { backgroundColor: '#f0f0f0' }]}
-          value={profile.email}
-          editable={false}
-          placeholder="Email"
-        />
-
-        <Text style={styles.label}>Username</Text>
-        <TextInput
-          style={styles.input}
-          value={profile.userName}
-          onChangeText={(text) => setProfile((prev) => ({ ...prev, userName: text }))}
-          placeholder="Enter username"
-        />
-
-<Text style={styles.label}>Age</Text>
-        <TextInput
-          style={styles.input}
-          value={profile.age}
-          onChangeText={(text) => setProfile((prev) => ({ ...prev, age: text }))}
-          keyboardType="numeric"
-          placeholder="Enter age"
-        />
-
-        <Text style={styles.label}>Contact Number</Text>
-        <TextInput
-          style={styles.input}
-          value={profile.contactNumber}
-          onChangeText={(text) => setProfile((prev) => ({ ...prev, contactNumber: text }))}
-          keyboardType="phone-pad"
-          placeholder="Enter contact number"
-        />
-        <Text style={styles.label}>Gender</Text>
-        <View style={styles.gender}>
-        <Picker
-          selectedValue={profile.gender}
-          style={styles.input}
-          onValueChange={(itemValue) => setProfile((prev) => ({ ...prev, gender: itemValue }))}
-        >
-          <Picker.Item label="Select Gender" value="" />
-          <Picker.Item label="Male" value="Male" />
-          <Picker.Item label="Female" value="Female" />
-        </Picker>
+    <>
+      <Stack.Screen 
+        options={{
+          headerTitle: 'My Profile',
+          headerRight: () => (
+            <TouchableOpacity 
+              onPress={handleSave}
+              style={styles.headerButton}
+              disabled={isSaving}
+            >
+              <Text style={{ color: '#007AFF' }}>Save</Text>
+            </TouchableOpacity>
+          ),
+        }} 
+      />
+      <ScrollView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={{ 
+            fontSize: 35,
+            fontFamily: 'outfit-bold',
+          }}> My Profile</Text>
+          <Ionicons name="person" size={35} color="black" style={{marginRight: 10}} />
         </View>
+        <View style={styles.form}>
+          <Avatar userName={profile.userName} gender={profile.gender} />
 
-        <TouchableOpacity 
-          style={[styles.button, isSaving && styles.buttonDisabled]} 
-          onPress={handleSave}
-          disabled={isSaving}
-        >
-          {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Save Profile</Text>}
-        </TouchableOpacity>
+          {error && <Text style={styles.errorText}>{error}</Text>}
 
-        <TouchableOpacity 
-          style={[styles.button, styles.logoutButton, {backgroundColor:'lightblue'}]} 
-          onPress={handleLogout}
-        >
-          <Text style={[styles.buttonText]}>Logout</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            style={[styles.input, { backgroundColor: '#f0f0f0' }]}
+            value={profile.email}
+            editable={false}
+            placeholder="Email"
+          />
+
+          <Text style={styles.label}>Username</Text>
+          <TextInput
+            style={styles.input}
+            value={profile.userName}
+            onChangeText={(text) => setProfile((prev) => ({ ...prev, userName: text }))}
+            placeholder="Enter username"
+          />
+
+          <Text style={styles.label}>Age</Text>
+          <TextInput
+            style={styles.input}
+            value={profile.age}
+            onChangeText={(text) => setProfile((prev) => ({ ...prev, age: text }))}
+            keyboardType="numeric"
+            placeholder="Enter age"
+          />
+
+          <Text style={styles.label}>Contact Number</Text>
+          <TextInput
+            style={styles.input}
+            value={profile.contactNumber}
+            onChangeText={(text) => setProfile((prev) => ({ ...prev, contactNumber: text }))}
+            keyboardType="phone-pad"
+            placeholder="Enter contact number"
+          />
+          <Text style={styles.label}>Gender</Text>
+          <View style={styles.gender}>
+            <Picker
+              selectedValue={profile.gender}
+              style={styles.input}
+              onValueChange={(itemValue) => setProfile((prev) => ({ ...prev, gender: itemValue }))}
+            >
+              <Picker.Item label="Select Gender" value="" />
+              <Picker.Item label="Male" value="Male" />
+              <Picker.Item label="Female" value="Female" />
+            </Picker>
+          </View>
+
+          <TouchableOpacity 
+            style={[styles.button, isSaving && styles.buttonDisabled]} 
+            onPress={handleSave}
+            disabled={isSaving}
+          >
+            {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Save Profile</Text>}
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.button, styles.logoutButton, {backgroundColor:'lightblue'}]} 
+            onPress={handleLogout}
+          >
+            <Text style={[styles.buttonText]}>Logout</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -255,7 +253,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontSize: 16,
     fontFamily: 'outfit-medium'
-    
   },
   form: {
     padding: 20,
@@ -336,6 +333,5 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
-
 
 export default ProfileScreen;

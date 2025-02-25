@@ -7,9 +7,9 @@ const TabLayout = () => {
     <Tabs screenOptions={{
       headerShown: false,
       tabBarActiveTintColor: 'purple',
-      tabBarLabelStyle: { fontSize: 14 },
+      tabBarLabelStyle: { fontSize: 10 },
         tabBarIconStyle: { marginBottom: -5 }, 
-        tabBarStyle: { paddingTop: 6, height: 60 }, 
+        tabBarStyle: { paddingTop: 2, height: 50 }, 
     }}
     >  
       <Tabs.Screen name="myTrip"
@@ -21,12 +21,12 @@ const TabLayout = () => {
       <Tabs.Screen name="discover"
       options={{
         tabBarLabel:'Discover',
-        tabBarIcon:({ color }) => <Ionicons name='globe'  size={24} color={color}/>
+        tabBarIcon:({ color }) => <Ionicons name='globe' size={24} color={color}/>
       }}/>
       <Tabs.Screen name="profile"
       options={{
         tabBarLabel:'Profile',
-        tabBarIcon:({ color }) => <Ionicons name='people'  size={24} color={color}/>
+        tabBarIcon:({ color }) => <Ionicons name='people' size={24} color={color}/>
       }}/>
     </Tabs>
   )
