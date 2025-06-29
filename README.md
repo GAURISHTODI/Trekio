@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+# 🌍 Trekio – AI-Powered Trip Planner
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Trekio is a smart travel planning app that uses **Gemini Flash 2.0** to generate personalized trip plans. Input your destination, dates, budget, and number of travelers—Trekio does the rest!
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 🔍 **Location Autocomplete** using Google Places API
+- 🤖 **AI-Generated Trip Plan** from Gemini Flash 2.0
+  - ✈️ Flights
+  - 🏨 Hotels
+  - 📅 Day-by-Day Planner
+- 🔐 **Firebase Authentication**
+- ☁️ **Firestore for data storage**
+- 🎞️ **Lottie animations** for an engaging UI
 
-2. Start the app
+---
 
-   ```bash
-    npx expo start
-   ```
+## 🛠 Tech Stack
 
-In the output, you'll find options to open the app in a
+- **Frontend**: React Native with Expo
+- **AI API**: Gemini Flash 2.0 (Google)
+- **Backend**: Firebase Functions
+- **Database**: Firestore
+- **Location Search**: Google Places API
+- **Animations**: Lottie
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 Screenshots
 
-## Get a fresh project
+Below are some preview images from the app. All UI screens including onboarding, planner, hotel/flight recommendations, and final itinerary are shown.
 
-When you're ready, run:
+> 🖼️ Images are stored in the `Trekio images/` folder.
 
-```bash
-npm run reset-project
-```
+## 🖼️ App Screenshots
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Below are the screenshots demonstrating the complete functionality of Trekio – from onboarding to AI-generated itinerary.
 
-## Learn more
+<h2>📱 App Screenshots</h2>
 
-To learn more about developing your project with Expo, look at the following resources:
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/1.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/2.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/3.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/4.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/5.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/6.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/7.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/8.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/9.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/10.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/11.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/12.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/13.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/14.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/15.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/16.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/17.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/18.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/19.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/20.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/21.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/22.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/23.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/24.jpeg" width="30%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/25.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/26.jpeg" width="30%" />
+  <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/27.jpeg" width="30%" />
+</p>
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
