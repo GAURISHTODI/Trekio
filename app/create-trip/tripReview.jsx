@@ -25,7 +25,6 @@ export default function tripReview() {
               
               <View style={{ marginTop: 30, display: 'flex', flexDirection: 'row', }}>
                   <Text style={{fontSize:30}}>📍</Text>
-                  {/* <Entypo name="location-pin" size={34} color="black" style={{paddingTop:10}} /> */}
                   <View style={{paddingLeft:30}}>
                   <Text style={{color:'grey', fontFamily:'outfit'}}> Destination</Text>
                   <Text style={{fontSize:20, fontFamily:'outfit-medium'}}>{tripData?.locationInfo.name}</Text>
@@ -34,7 +33,7 @@ export default function tripReview() {
 
               <View style={{ marginTop: 30, display: 'flex', flexDirection: 'row', }}>
                   <Text style={{fontSize:30}}>👬</Text>
-                  {/* <Entypo name="location-pin" size={34} color="black" style={{paddingTop:10}} /> */}
+                 
                   <View style={{paddingLeft:30}}>
                   <Text style={{color:'grey', fontFamily:'outfit'}}> Traveller type</Text>
                   <Text style={{fontSize:20, fontFamily:'outfit-medium'}}>{tripData?.traveller?.title}</Text>
@@ -43,7 +42,7 @@ export default function tripReview() {
 
               <View style={{ marginTop: 30, display: 'flex', flexDirection: 'row', }}>
                   <Text style={{fontSize:30}}>📅</Text>
-                  {/* <Entypo name="location-pin" size={34} color="black" style={{paddingTop:10}} /> */}
+    
                   <View style={{paddingLeft:30}}>
                   <Text style={{color:'grey', fontFamily:'outfit'}}> Destination</Text>
                       <Text style={{ fontSize: 20, fontFamily: 'outfit-medium' }}>{moment(tripData?.startDate).format('DD MMM')
@@ -53,15 +52,11 @@ export default function tripReview() {
 
               <View style={{ marginTop: 30, display: 'flex', flexDirection: 'row', }}>
                   <Text style={{fontSize:30}}>💰</Text>
-                  {/* <Entypo name="location-pin" size={34} color="black" style={{paddingTop:10}} /> */}
                   <View style={{paddingLeft:30}}>
                   <Text style={{color:'grey', fontFamily:'outfit'}}> Destination</Text>
                   <Text style={{fontSize:20, fontFamily:'outfit-medium'}}>{tripData?.budget}</Text>
                   </View>
               </View> 
-
-
-
               <TouchableOpacity
                         style={{ borderWidth: 1, margin: 40, marginTop:60, padding: 15, borderRadius: 10, backgroundColor: 'black' }}
                         onPress={() => router.push('/create-trip/generate-Trip')}>
