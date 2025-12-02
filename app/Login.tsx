@@ -16,7 +16,7 @@ const Login = () => {
         style={tw`h-1/2 w-full `}  /> 
 
       <View style={styles.container}>
-        <Text style={styles.headingStyle}> Trekio </Text>
+        <Text style={styles.headingStyle}> TrekioAI </Text>
         <Text style={styles.headingTwo}> Your journey begins here</Text>
 
         <View style={tw `mt-10`}>
