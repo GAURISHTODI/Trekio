@@ -1,6 +1,6 @@
 # 🌍 Trekio – AI-Powered Trip Planner
 
-Trekio is a smart travel planning app that uses **Gemini Flash 2.0** to generate personalized trip plans. Input your destination, dates, budget, and number of travelers—Trekio does the rest!
+Trekio is a smart AI travel iternary planning app that uses **Gemini Flash 2.0** to generate personalized trip plans. Input your destination, dates, budget, and number of travelers—Trekio does the rest!
 
 ---
 
