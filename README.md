@@ -40,51 +40,59 @@ Below are the screenshots demonstrating the complete functionality of Trekio –
 
 <h2>📱 App Screenshots</h2>
 
-<p float="left">
+
+## App Screenshots
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/1.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/2.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/3.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/4.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/5.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/6.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/7.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/8.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/9.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/10.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/11.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/12.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/13.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/14.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/15.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/16.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/17.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/18.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/19.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/20.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/21.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/22.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/23.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/24.jpeg" width="30%" />
 </p>
-<p float="left">
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/25.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/26.jpeg" width="30%" />
   <img src="https://raw.githubusercontent.com/GAURISHTODI/Trekio/main/Trekio%20images/27.jpeg" width="30%" />
 </p>
-
-
-
