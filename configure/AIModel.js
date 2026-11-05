@@ -27,7 +27,7 @@ const {
         {
             role: "user",
             parts: [
-              {text: "enerate Travel Plan for Location:Dhaka, Bangladesh for 2 days and 1 nights for Just Me with a Moderate budget with Flight Details, Flight Price with Booking URL, Hotel Option list with HotelName, Hotel Address, Hotel Geo coordinates, rating and description and places to visit nearby with PlaceName, Place details, Place Image Url, Geo coordinates, ticket price and detials, Time to travel each of the location for 2 days and 1 nights with each day plan along wiht best time to visit in JSON format\n"},
+              {text: "Generate Travel Plan for Location:Dhaka, Bangladesh for 2 days and 1 nights for Just Me with a Moderate budget with Flight Details, Flight Price with Booking URL, Hotel Option list with HotelName, Hotel Address, Hotel Geo coordinates, rating and description and places to visit nearby with PlaceName, Place details, Place Image Url, Geo coordinates, ticket price and detials, Time to travel each of the location for 2 days and 1 nights with each day plan along wiht best time to visit in JSON format\n"},
             ],
           },
           {
